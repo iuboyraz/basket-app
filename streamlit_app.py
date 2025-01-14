@@ -7,6 +7,9 @@ from io import BytesIO
 st.title("Sepet Analizi")
 st.write("Excel formatındaki sipariş verilerinizden sık kullanılan ürün gruplarını ve önerileri keşfedin!")
 
+# Parametre Seçimleri için Sidebar
+st.sidebar.header("Parametre Seçimleri")
+
 # Ürün listesi
 urun_listesi = [
     "KARTUŞ", "OTOKLAV", "YIKAMA", "AMELİYAT MASASI", 
@@ -14,20 +17,20 @@ urun_listesi = [
 ]
 
 # Dosya yükleme
-uploaded_file = st.file_uploader("Lütfen bir Excel dosyası yükleyin:", type=["xlsx"])
+uploaded_file = st.sidebar.file_uploader("Lütfen bir Excel dosyası yükleyin:", type=["xlsx"])
 
 # Algoritma seçimi
-algorithm = st.selectbox("Sepet analizi algoritmasını seçin:", ["Apriori", "FP-Growth"])
+algorithm = st.sidebar.selectbox("Sepet analizi algoritmasını seçin:", ["Apriori", "FP-Growth"])
 
 # Minimum destek ve güven eşiklerinin ayarlanması
-min_support = st.slider("Minimum Destek (Support):", min_value=0.01, max_value=1.0, value=0.01, step=0.01)
-min_threshold = st.slider("Minimum Güven (Confidence):", min_value=0.1, max_value=1.0, value=0.5, step=0.1)
+min_support = st.sidebar.slider("Minimum Destek (Support):", min_value=0.01, max_value=1.0, value=0.01, step=0.01)
+min_threshold = st.sidebar.slider("Minimum Güven (Confidence):", min_value=0.1, max_value=1.0, value=0.5, step=0.1)
 
 # Ürün seçimi (çoklu seçim)
-urun_secimi = st.multiselect("Analiz için ürün(ler) seçin:", urun_listesi)
+urun_secimi = st.sidebar.multiselect("Analiz için ürün(ler) seçin:", urun_listesi)
 
 # Filtreleme yöntemi seçimi
-filter_method = st.selectbox(
+filter_method = st.sidebar.selectbox(
     "Filtreleme yöntemini seçin:",
     [
         "1 - Seçilen ürün grubunun içinde bulunduğu sepetler değerlendirilerek öneride bulunulacaktır.",
