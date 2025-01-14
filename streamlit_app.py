@@ -8,7 +8,7 @@ st.title("Sepet Analizi")
 st.write("Excel formatındaki sipariş verilerinizden sık kullanılan ürün gruplarını ve önerileri keşfedin!")
 
 # Resim ekleyin
-st.image("https://editor.analyticsvidhya.com/uploads/70788market%20basket%20icon.jpeg", caption="Market Sepeti İkonu", use_container_width=True)
+st.image("https://editor.analyticsvidhya.com/uploads/70788market%20basket%20icon.jpeg", caption="", use_container_width=True)
 
 # Parametre Seçimleri için Sidebar
 st.sidebar.header("Parametre Seçimleri")
